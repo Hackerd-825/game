@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lecteur Audio GitHub</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    h1 {
+      color: #333;
+    }
+    audio {
+      margin: 10px 0;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <h1>Lecteur Audio</h1>
+  <div id="audioContainer">
+    <!-- Les fichiers audio seront ajoutés ici -->
+  </div>
+
+  <script>
+    const repositoryUrl = "https://raw.githubusercontent.com/votre-utilisateur/lecteur-audio/main/";
+    const audioFiles = [
+      "song1.mp3", // Ajoutez ici les noms des fichiers audio
+      "song2.mp3",
+      "song3.mp3"
+    ];
+
+    const container = document.getElementById('audioContainer');
+
+    audioFiles.forEach(file => {
+      const audioElement = document.createElement('audio');
+      audioElement.controls = true;
+
+      const sourceElement = document.createElement('source');
+      sourceElement.src = repositoryUrl + file;
+      sourceElement.type = 'audio/mpeg';
+
+      audioElement.appendChild(sourceElement);
+      container.appendChild(audioElement);
+    });
+  </script>
+</body>
+</html>
