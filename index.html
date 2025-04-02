@@ -3,13 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lecteur Audio</title>
+  <title>Lecteur Audio GitHub</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    h1 {
+      color: #333;
+    }
+    audio {
+      margin: 10px 0;
+      display: block;
+    }
+  </style>
 </head>
 <body>
-  <h1>Lecteur Audio GitHub</h1>
-  <audio controls>
-    <source src="https://github.com/Hackerd-825/game/raw/refs/heads/main/mp3download_zgIWEmK.mp3" type="audio/mpeg">
-    Votre navigateur ne supporte pas l'élément audio.
-  </audio>
+  <h1>Lecteur Audio</h1>
+  <div id="audioContainer">
+    <!-- Les lecteurs audio seront générés ici -->
+  </div>
+
+  <script>
+    // Liste des fichiers audio hébergés sur GitHub
+    const audioFiles = [
+      "https://github.com/Hackerd-825/game/raw/refs/heads/main/mp3download_zgIWEmK.mp3",
+      // Ajoutez ici d'autres fichiers audio
+    ];
+
+    const container = document.getElementById('audioContainer');
+
+    // Crée un lecteur audio pour chaque fichier
+    audioFiles.forEach(file => {
+      const audioElement = document.createElement('audio');
+      audioElement.controls = true;
+
+      const sourceElement = document.createElement('source');
+      sourceElement.src = file;
+      sourceElement.type = 'audio/mpeg';
+
+      audioElement.appendChild(sourceElement);
+      container.appendChild(audioElement);
+    });
+  </script>
 </body>
 </html>
